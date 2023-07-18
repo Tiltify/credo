@@ -119,7 +119,7 @@ defmodule Credo.Execution do
 
   @doc "Builds an Execution struct for the the given `argv`."
   def build(argv \\ []) when is_list(argv) do
-    max_concurrent_check_runs = System.schedulers_online()
+    max_concurrent_check_runs = 1
 
     %__MODULE__{argv: argv, max_concurrent_check_runs: max_concurrent_check_runs}
     |> put_pipeline(@execution_pipeline_key, @execution_pipeline)
